@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:16
+    environment: { POSTGRES_USER: dermai, POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}", POSTGRES_DB: dermai }
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck: { test: ["CMD-SHELL", "pg_isready -U dermai"], interval: 5s, retries: 10 }
+  backend:
+    build: { context: ., dockerfile: backend/Dockerfile }
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://dermai:${POSTGRES_PASSWORD}@db:5432/dermai
+      STORAGE_DIR: /data/storage
+      MODEL_DIR: /srv/backend/models
+    volumes: ["./backend/models:/srv/backend/models", "storage:/data/storage"]
+    depends_on: { db: { condition: service_healthy } }
+    ports: ["8000:8000"]
+  frontend:
+    build: ./frontend
+    depends_on: [backend]
+    ports: ["8080:80"]
+volumes: { pgdata: {}, storage: {} }
