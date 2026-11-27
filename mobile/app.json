@@ -1,0 +1,1 @@
+{ "expo": { "name": "DermAI", "slug": "dermai", "version": "1.0.0", "plugins": [["expo-camera", { "cameraPermission": "DermAI needs the camera to photograph skin lesions." }]] } }

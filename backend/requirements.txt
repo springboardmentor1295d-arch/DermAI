@@ -1,0 +1,21 @@
+fastapi>=0.110
+uvicorn[standard]>=0.27
+sqlalchemy>=2.0
+psycopg2-binary>=2.9
+pydantic>=2.5
+pydantic-settings>=2.1
+python-jose[cryptography]>=3.3
+passlib>=1.7
+python-multipart>=0.0.9
+email-validator>=2.1
+numpy>=1.24
+opencv-python-headless>=4.8
+pillow>=10.0
+reportlab>=4.0
+httpx>=0.26
+pytest>=8.0
+# ML runtime (install CPU wheels: pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu)
+torch>=2.1
+torchvision>=0.16
+timm>=0.9.12
+grad-cam>=1.5.0

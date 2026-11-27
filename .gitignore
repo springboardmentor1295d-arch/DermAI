@@ -1,0 +1,51 @@
+.env
+__pycache__/
+*.pyc
+node_modules/
+dist/
+storage/
+*.db
+ml/runs/
+ml/splits.csv
+backend/models/*.pt
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Frontend
+node_modules/
+dist/
+
+# Private configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Database
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
+# Private data
+storage/
+datasets/
+ml/runs/
+ml/splits.csv
+
+# Temporary files
+*.log
+*.backup
+*.bak
+3.20
+
+# Allow deployed models
+!backend/models/*.pt
+!backend/models/*.joblib
