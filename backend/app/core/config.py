@@ -7,24 +7,24 @@ from pathlib import Path
 class Settings(BaseSettings):
     PROJECT_NAME: str = "DermAI: Skin Disease Detector"
     VERSION: str = "1.0.0"
-    API_V1_STR: str = "/api/v1"
+    API_V1_STR: str 
     
     # Environment
     ENVIRONMENT: str = "development"
     DEBUG: bool = True
     
     # Security
-    SECRET_KEY: str = "dermai_super_secret_development_key_change_in_production_32bytes_min"
+    SECRET_KEY: str
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24  # 24 hours
-    ALGORITHM: str = "HS256"
+    ALGORITHM: str 
 
     # Private Single Administrator Account (configured exclusively via environment / .env)
-    ADMIN_EMAIL: str = "sysadmin@dermai.org"
-    ADMIN_PASSWORD: str = ""
-    ADMIN_FULL_NAME: str = "System Administrator"
+    ADMIN_EMAIL: str 
+    ADMIN_PASSWORD: str
+    ADMIN_FULL_NAME: str
     
     # Database (Dual mode: default to SQLite for local dev, PostgreSQL for production)
-    DATABASE_URL: str = "sqlite:///./dermai.db"
+    DATABASE_URL: str 
     
     # CORS Origins
     BACKEND_CORS_ORIGINS: List[str] = [
@@ -50,8 +50,8 @@ class Settings(BaseSettings):
     ML_ARTIFACT_DIR: Path = BASE_DIR / "artifacts" / "ml"
     
     # Dataset path (preserves existing EDA files)
-    PAD_DATASET_DIR: Path = Path(r"C:\DermAI_EDA\data\PAD-UFES-20_zr7vgbcyr2-1")
-    PAD_SPLIT_FILE: Path = Path(r"C:\DermAI_EDA\outputs\PAD-UFES-20\patient_level_split_stratified.csv")
+    PAD_DATASET_DIR: Path = Path
+    PAD_SPLIT_FILE: Path = Path
     
     # Active ML model path (Strictly EfficientNet-B0 as sole deployed classifier)
     ACTIVE_MODEL_PATH: Path = ML_ARTIFACT_DIR / "efficientnet_b0_best.pth"
